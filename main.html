@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be better you</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.4/css/flag-icon.min.css">
 </head>
+
 <body class="bg-gray-50">
     <nav class="bg-black text-white sticky top-0 z-50">
         <div class="container mx-auto px-4">
@@ -15,11 +19,20 @@
                     <img src="images/png/logo_no background.png" alt="Be better you logo" class="h-16 w-auto">
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="hover:text-red-500 transition">Home</a>
-                    <a href="#about" class="hover:text-red-500 transition">About</a>
-                    <a href="#testimonials" class="hover:text-red-500 transition">Testimonials</a>
-                    <a href="#bmi" class="hover:text-red-500 transition">BMI Calculator</a>
-                    <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+                    <a href="#home" data-lang-key="home" class="hover:text-red-500 transition">Home</a>
+                    <a href="#about" data-lang-key="about" class="hover:text-red-500 transition">About</a>
+                    <a href="#testimonials" data-lang-key="testimonials"
+                        class="hover:text-red-500 transition">Testimonials</a>
+                    <a href="#bmi" data-lang-key="bmi" class="hover:text-red-500 transition">BMI Calculator</a>
+                    <a href="#contact" data-lang-key="contact" class="hover:text-red-500 transition">Contact</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" onclick="setLanguage('it')" class="hover:opacity-75 transition">
+                        <img src="images/flags/ita.png" alt="Italiano" class="h-6 w-8">
+                    </a>
+                    <a href="#" onclick="setLanguage('en')" class="hover:opacity-75 transition">
+                        <img src="images/flags/UK.png" alt="English" class="h-6 w-8">
+                    </a>
                 </div>
             </div>
         </div>
@@ -47,14 +60,14 @@
                         class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                 </div>
-                 <!-- Slide 4 -->
-                 <div class="absolute inset-0 slide">
+                <!-- Slide 4 -->
+                <div class="absolute inset-0 slide">
                     <img src="https://images.unsplash.com/photo-1519505907962-0a6cb0167c73" alt="Training"
                         class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                 </div>
-                 <!-- Slide 5 -->
-                 <div class="absolute inset-0 slide">
+                <!-- Slide 5 -->
+                <div class="absolute inset-0 slide">
                     <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd" alt="Training"
                         class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -63,9 +76,12 @@
         </div>
         <div class="relative container mx-auto px-4 h-full flex items-center">
             <div class="text-white max-w-2xl">
-                <h1 class="text-5xl font-bold mb-6">Transform Your Body, Transform Your Life</h1>
-                <p class="text-xl mb-8">Professional boxing and personal training to help you achieve your fitness goals</p>
-                <a href="#form" id="get-started" class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition">Get
+                <h1 data-lang-key="welcomeMessage" class="text-5xl font-bold mb-6">Transform Your Body, Transform Your
+                    Life</h1>
+                <p data-lang-key="welcomeSubtext" class="text-xl mb-8">Professional boxing and personal training to help
+                    you achieve your fitness goals</p>
+                <a href="#form" id="get-started" data-lang-key="getStarted"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition">Get
                     Started</a>
             </div>
         </div>
@@ -75,34 +91,40 @@
     <section id="about" class="py-20">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <img src="https://scontent.fnap3-1.fna.fbcdn.net/v/t39.30808-6/431484310_2802018073283574_3788274284310589707_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=7oivsACwig4Q7kNvgHDIGBW&_nc_zt=23&_nc_ht=scontent.fnap3-1.fna&_nc_gid=AVMG53iCh5kMoF4y6V6ZNdY&oh=00_AYCdnLpW4kDW6kRo0DC4PtNSfHJYnyx5pSTrJQnPht9HnA&oe=674FE811" alt="Personal Trainer" class="rounded-lg shadow-xl">
+                <img src="https://scontent.fnap3-1.fna.fbcdn.net/v/t39.30808-6/431484310_2802018073283574_3788274284310589707_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=7oivsACwig4Q7kNvgHDIGBW&_nc_zt=23&_nc_ht=scontent.fnap3-1.fna&_nc_gid=AVMG53iCh5kMoF4y6V6ZNdY&oh=00_AYCdnLpW4kDW6kRo0DC4PtNSfHJYnyx5pSTrJQnPht9HnA&oe=674FE811"
+                    alt="Personal Trainer" class="rounded-lg shadow-xl">
                 <div>
-                    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-                    <p class="text-gray-600 mb-6">With over 10 years of experience in professional boxing and personal training, I help clients achieve their fitness goals through personalized training programs and expert guidance.</p>
-                    <button onclick="showInfo()" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">See More</button>
+                    <h2 data-lang-key="aboutTitle" class="text-4xl font-bold mb-6">About Me</h2>
+                    <p data-lang-key="aboutDescription" class="text-gray-600 mb-6">With over 10 years of experience in
+                        professional boxing and personal training, I help clients achieve their fitness goals through
+                        personalized training programs and expert guidance.</p>
+                    <button data-lang-key="seeMore" onclick="showInfo()"
+                        class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">See
+                        More</button>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Info box that acts like a cookie notice -->
+    <!-- Info box that acts like a cookie notice -->
     <div id="info-box"
         class="hidden fixed bottom-4 right-4 bg-white shadow-lg border border-gray-400 p-6 rounded-lg w-96 h-180">
         <!-- Title with Icon -->
         <div class="flex items-center mb-4">
             <img src="images/Favicons/browser.png" alt="Icon" class="w-6 h-6 mr-2">
-            <h2 class="text-lg font-semibold text-gray-800">About Me</h2>
+            <h2 data-lang-key="aboutTitle" class="text-lg font-semibold text-gray-800">About Me</h2>
         </div>
-        <p class="text-gray-600 mt-2">
+        <p data-lang-key="aboutDescription" class="text-gray-600 mt-2">
             With over 10 years of experience in professional boxing and personal training, I help clients achieve their
             fitness goals through personalized training programs and expert guidance.
         </p>
-        <p class="text-gray-600 mt-1">
-            My focus is on maintaining good practices in the fitness and wellness world, ensuring sustainable and effective
+        <p data-lang-key="moreDescription" class="text-gray-600 mt-1">
+            My focus is on maintaining good practices in the fitness and wellness world, ensuring sustainable and
+            effective
             results for everyone I train.
         </p>
         <span></span>
-        <button onclick="hideInfo()" id="close-info-btn"
+        <button onclick="hideInfo()" id="close-info-btn" data-lang-key="closeButton"
             class="bg-black text-white px-3 py-2 rounded-full hover:bg-gray-400 transition absolute bottom-2 right-2">Close</button>
     </div>
 
@@ -111,17 +133,20 @@
             <h2 class="text-4xl font-bold text-center mb-12">Success Stories</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61" alt="Client Success" class="w-full h-48 object-cover rounded mb-4">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61" alt="Client Success"
+                        class="w-full h-48 object-cover rounded mb-4">
                     <p class="text-gray-600 mb-4">"Lost 30 pounds and gained confidence. Best decision ever!"</p>
                     <p class="font-bold">- John Doe</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155" alt="Client Success" class="w-full h-48 object-cover rounded mb-4">
+                    <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155" alt="Client Success"
+                        class="w-full h-48 object-cover rounded mb-4">
                     <p class="text-gray-600 mb-4">"Improved my boxing technique dramatically in just 3 months."</p>
                     <p class="font-bold">- Jane Smith</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" alt="Client Success" class="w-full h-48 object-cover rounded mb-4">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" alt="Client Success"
+                        class="w-full h-48 object-cover rounded mb-4">
                     <p class="text-gray-600 mb-4">"Found my passion for fitness thanks to the amazing training."</p>
                     <p class="font-bold">- Mike Johnson</p>
                 </div>
@@ -131,88 +156,77 @@
 
     <section id="bmi" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">BMI Calculator</h2>
+            <h2 data-lang-key="bmi" class="text-4xl font-bold text-center mb-12">BMI Calculator</h2>
             <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
                 <div class="mb-6">
-                    <label class="block text-gray-700 mb-2">Height (cm)</label>
-                    <input id="height" type="number" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <label data-lang-key="height" class="block text-gray-700 mb-2">Height (cm)</label>
+                    <input id="height" type="number"
+                        class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-red-500">
                 </div>
                 <div class="mb-6">
-                    <label class="block text-gray-700 mb-2">Weight (kg)</label>
-                    <input id="weight" type="number" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-red-500">
+                    <label data-lang-key="weight" class="block text-gray-700 mb-2">Weight (kg)</label>
+                    <input id="weight" type="number"
+                        class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-red-500">
                 </div>
-                <button id="bmiButton" class="w-full bg-red-600 text-white py-3 rounded-full hover:bg-red-700 transition">Calculate BMI</button>
+                <button id="bmiButton" data-lang-key="calculateBMI"
+                    class="w-full bg-red-600 text-white py-3 rounded-full hover:bg-red-700 transition">Calculate
+                    BMI</button>
             </div>
         </div>
     </section>
 
     <section id="form" class="bg-gray-100 py-20">
         <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-8">
-            <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Contact Me</h1>
-            <p class="text-gray-600 text-center mb-8">
+            <h1 data-lang-key="contactFormTitle" class="text-3xl font-bold text-gray-800 text-center mb-6">Contact Me
+            </h1>
+            <p data-lang-key="contactFormMessage" class="text-gray-600 text-center mb-8">
                 Have questions or want to start your fitness journey? Fill out the form below to get in touch!
             </p>
             <form action="#" method="POST" class="space-y-6">
                 <!-- First Name -->
                 <div>
-                    <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
-                    <input 
-                        type="text" 
-                        id="first-name" 
-                        name="first-name" 
+                    <label for="first-name" data-lang-key="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" id="first-name" name="first-name" data-lang-key="placeholderFirstname"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                        placeholder="Enter your first name" 
-                        required>
+                        placeholder="Enter your first name" required>
                 </div>
-    
+
                 <!-- Last Name -->
                 <div>
-                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
-                    <input 
-                        type="text" 
-                        id="last-name" 
-                        name="last-name" 
+                    <label for="last-name" data-lang-key="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" data-lang-key="placeholderLastname"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                        placeholder="Enter your last name" 
-                        required>
+                        placeholder="Enter your last name" required>
                 </div>
-    
+
                 <!-- Email -->
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
+                    <label for="email" data-lang-key="mail" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" name="email" data-lang-key="placeholderMail"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                        placeholder="Enter your email address" 
-                        required>
+                        placeholder="Enter your email address" required>
                 </div>
-    
+
                 <!-- Message -->
                 <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
-                    <textarea 
-                        id="message" 
-                        name="message" 
-                        rows="5" 
+                    <label for="message" data-lang-key="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                    <textarea id="message" data-lang-key="placeholderMessage" name="message" rows="5"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                        placeholder="Write your message here" 
-                        required></textarea>
+                        placeholder="Write your message here" required></textarea>
                 </div>
-                
+
                 <!-- Submit Button -->
                 <div class="text-center">
-                    <button id="send-message" type="submit" onmouseenter="showJoggingAnimation()"
+                    <button id="send-message" onclick="emptyMessage()" type="submit" onmouseenter="showJoggingAnimation()"
+                        data-lang-key="sendMessageButtonTitle"
                         class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Send
                         Message
                     </button>
                 </div>
-
             </form>
         </div>
     </section>
-    
+
     <footer id="contact" class="bg-black text-white py-12">
         <div class="container mx-auto px-2">
             <div class="grid md:grid-cols-4 gap-12">
@@ -220,28 +234,37 @@
                     <img src="images/png/logo_no background.png" alt="Be better you logo" class="h-20 w-auto">
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <h3 data-lang-key="contactSectionTitle" class="text-xl font-bold mb-4">Contact Info</h3>
                     <p class="mb-2">Phone: +39 3505399791</p>
                     <p class="mb-2">Email: a_p.trainer@hotmail.com</p>
-                    <p>81036 San Cipriano D'aversa, Caserta</p>
+                    <p class="mb-2">Via G.Marconi 62, Casapesenna (CE),<br>CAP 81030</p>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <h3 data-lang-key="followMeTitle" class="text-xl font-bold mb-4">Follow me</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-red-500 transition">Instagram</a>
-                        <a href="https://www.facebook.com/antonio.palma.52012" class="hover:text-red-500 transition">Facebook</a>
-                        <a href="#" class="hover:text-red-500 transition">LinkedIn</a>
+                        <a href="https://www.instagram.com/palma.ptrainer/profilecard/?igsh=cmozdm1uNnAwZjI="
+                            class="hover:text-red-500 transition">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@a.p_trainer?_t=8ru7AGm92cj&_r=1"
+                            class="hover:text-red-500 transition">
+                            <i class="fab fa-tiktok text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/antonio-palma-155295324/"
+                            class="hover:text-red-500 transition">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Hours</h3>
-                    <p class="mb-2">Mon-Fri: 6am - 9pm</p>
-                    <p class="mb-2">Sat: 8am - 6pm</p>
-                    <p>Sun: 8am - 2pm</p>
+                    <h3 data-lang-key="hoursTitle" class="text-xl font-bold mb-4">Hours</h3>
+                    <p data-lang-key="hoursp1" class="mb-2">Mon-Fri: 6am - 9pm</p>
+                    <p data-lang-key="hoursp2" class="mb-2">Sat: 8am - 6pm</p>
                 </div>
             </div>
         </div>
     </footer>
     <script src="main.js"></script>
+    <script src="settings.js"></script>
 </body>
 </html>
