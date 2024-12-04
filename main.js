@@ -45,7 +45,6 @@ function hideInfo() {
 }
 
 // Event listeners for buttons
-showInfoButton.addEventListener('click', showInfo);
 closeInfoButton.addEventListener('click', hideInfo);
 
 document.addEventListener("DOMContentLoaded", () => {

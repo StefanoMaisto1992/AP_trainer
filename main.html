@@ -176,13 +176,15 @@
     </section>
 
     <section id="form" class="bg-gray-100 py-20">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script src="form.js"></script>
         <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-8">
             <h1 data-lang-key="contactFormTitle" class="text-3xl font-bold text-gray-800 text-center mb-6">Contact Me
             </h1>
             <p data-lang-key="contactFormMessage" class="text-gray-600 text-center mb-8">
                 Have questions or want to start your fitness journey? Fill out the form below to get in touch!
             </p>
-            <form action="#" method="POST" class="space-y-6">
+            <form id="contact-form" action="#" method="POST" class="space-y-6" onsubmit="sendMail(event)">
                 <!-- First Name -->
                 <div>
                     <label for="first-name" data-lang-key="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
@@ -202,7 +204,7 @@
                 <!-- Email -->
                 <div>
                     <label for="email" data-lang-key="mail" class="block text-sm font-medium text-gray-700">Email Address</label>
-                    <input type="email" id="email" name="email" data-lang-key="placeholderMail"
+                    <input type="email" id="email_id" name="email" data-lang-key="placeholderMail"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         placeholder="Enter your email address" required>
                 </div>
@@ -210,14 +212,14 @@
                 <!-- Message -->
                 <div>
                     <label for="message" data-lang-key="message" class="block text-sm font-medium text-gray-700">Your Message</label>
-                    <textarea id="message" data-lang-key="placeholderMessage" name="message" rows="5"
+                    <textarea id="message_id" data-lang-key="placeholderMessage" name="message" rows="5"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         placeholder="Write your message here" required></textarea>
                 </div>
 
                 <!-- Submit Button -->
                 <div class="text-center">
-                    <button id="send-message" onclick="emptyMessage()" type="submit" onmouseenter="showJoggingAnimation()"
+                    <button id="send-message" type="submit"
                         data-lang-key="sendMessageButtonTitle"
                         class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Send
                         Message
