@@ -1,7 +1,3 @@
-[build]
-command = "npm run build"  # Comando per la build del tuo progetto
-publish = "public"         # Cartella da pubblicare (ad esempio "build" o "dist")
-
 [[redirects]]
 from = "/*"
 to = "/main.html"
