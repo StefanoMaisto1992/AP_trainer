@@ -7,6 +7,9 @@
 
 function sendMail(event) {
     event.preventDefault();
+    const spinner = document.getElementById("loading-spinner")
+    spinner.classList.remove('hidden')
+
     const firstName = document.getElementById("first-name").value;
     const lastName = document.getElementById("last-name").value;
     const mail = document.getElementById("email_id").value;
@@ -24,7 +27,10 @@ function sendMail(event) {
         }, function (error) {
             console.log("FAILED...", error);
             alert("Ops! Qualcosa è andato storto. Riprova.");
+        }) .finally(function() {
+            spinner.classList.add("hidden");
         });
+        
 }
 
 function clearAll() {

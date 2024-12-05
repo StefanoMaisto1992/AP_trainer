@@ -5,3 +5,28 @@
   .slide.active {
     opacity: 1;
   }
+
+/* Sfondo semi-trasparente per lo spinner */
+#loading-spinner {
+  background-color: rgba(255, 255, 255, 0.8); /* Sfondo semi-trasparente */
+}
+
+/* Stile dello spinner */
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid #f3f3f3; /* Grigio chiaro */
+  border-top: 8px solid #d91919e1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite; /* Animazione di rotazione */
+}
+
+/* Definizione dell'animazione */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
