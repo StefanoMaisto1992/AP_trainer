@@ -86,19 +86,77 @@
                     Life</h1>
                 <p data-lang-key="welcomeSubtext" class="text-xl mb-8">Professional boxing and personal training to help
                     you achieve your fitness goals</p>
-                <a href="#form" id="get-started" data-lang-key="getStarted"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition">Get
-                    Started</a>
+                <a href="javascript:void(0);" id="get-started" data-lang-key="getStarted"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition">Get Started</a>
             </div>
         </div>
     </section>
     <script src="slideshow.js"></script>
 
+    <!-- Overlay di onboarding -->
+    <div id="onboarding-overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="relative bg-white rounded-lg max-w-lg w-full p-8">
+            <!-- Barra di progresso -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-700" id="progress-bar">
+            </div>
+            <h2 class="text-2xl font-bold mb-4 text-center">Let’s Start Your Journey!</h2>
+            <!-- Domanda 1 -->
+            <div class="question-container mb-6">
+                <p class="text-xl mb-4">What’s your primary fitness goal?</p>
+                <button onclick="nextQuestion('goal')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Lose Weight</button>
+                <button onclick="nextQuestion('goal')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Build Muscle</button>
+                <button onclick="nextQuestion('goal')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Improve Endurance</button>
+            </div>
+            <!-- Domanda 2 -->
+            <div class="question-container hidden mb-6">
+                <p class="text-xl mb-4">How often do you currently work out?</p>
+                <button onclick="nextQuestion('frequency')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">3 times a week</button>
+                <button onclick="nextQuestion('frequency')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">5 times a week</button>
+                <button onclick="nextQuestion('frequency')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">I don’t work out yet</button>
+            </div>
+            <!-- Domanda 3 -->
+            <div class="question-container hidden mb-6">
+                <p class="text-xl mb-4">What’s your preferred workout environment?</p>
+                <button onclick="nextQuestion('environment')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Gym</button>
+                <button onclick="nextQuestion('environment')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Home</button>
+                <button onclick="nextQuestion('environment')"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Outdoor</button>
+            </div>
+            <!-- Modulo per dati personali -->
+            <div class="question-container hidden mb-6">
+                <p class="text-xl mb-4">Please provide your details:</p>
+                <input type="number" id="height" placeholder="Height (cm)"
+                    class="mb-4 w-full px-4 py-2 border border-gray-300 rounded-md">
+                <input type="number" id="weight" placeholder="Weight (kg)"
+                    class="mb-4 w-full px-4 py-2 border border-gray-300 rounded-md">
+                <input type="email" id="email" placeholder="Email"
+                    class="mb-4 w-full px-4 py-2 border border-gray-300 rounded-md">
+                <label class="flex items-center mb-4">
+                    <input type="checkbox" id="data-consent" class="mr-2"> I authorize the treatment of my personal
+                    data.
+                </label>
+                <button onclick="finishOnboarding()"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Finish</button>
+            </div>
+            <!-- Button per chiudere il modulo di onboarding -->
+            <button onclick="closeOnboarding()" class="absolute top-4 right-4 text-white text-xl">&times;</button>
+        </div>
+    </div>
+    <script src="questionnaire.js"></script>
+
     <section id="about" class="py-20">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <img src="images/Antonio_Palma.jpeg"
-                    alt="Personal Trainer" class="rounded-lg shadow-xl">
+                <img src="images/gallery/gallery7.jpeg" alt="Personal Trainer" class="rounded-lg shadow-xl">
                 <div>
                     <h2 data-lang-key="aboutTitle" class="text-4xl font-bold mb-6">About Me</h2>
                     <p data-lang-key="aboutDescription" class="text-gray-600 mb-6"></p>
@@ -106,6 +164,19 @@
                         class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">See
                         More</button>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 data-lang-key="galleryTitle" class="text-4xl font-bold text-center mb-12">Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <img src="images/gallery/gallery1.jpeg" alt="Gallery Image 1" class="rounded-lg shadow-lg w-full">
+                <img src="images/gallery/gallery2.jpeg" alt="Gallery Image 2" class="rounded-lg shadow-lg w-full">
+                <img src="images/gallery/gallery3.jpeg" alt="Gallery Image 3" class="rounded-lg shadow-lg w-full">
+                <img src="images/gallery/gallery4.jpeg" alt="Gallery Image 4" class="rounded-lg shadow-lg w-full">
+                <img src="images/gallery/gallery5.jpeg" alt="Gallery Image 5" class="rounded-lg shadow-lg w-full">
+                <img src="images/gallery/gallery6.jpeg" alt="Gallery Image 6" class="rounded-lg shadow-lg w-full">
             </div>
         </div>
     </section>
@@ -184,7 +255,8 @@
             <form id="contact-form" action="#" method="POST" class="space-y-6" onsubmit="sendMail(event)">
                 <!-- First Name -->
                 <div>
-                    <label for="first-name" data-lang-key="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <label for="first-name" data-lang-key="firstname"
+                        class="block text-sm font-medium text-gray-700">First Name</label>
                     <input type="text" id="first-name" name="first-name" data-lang-key="placeholderFirstname"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         placeholder="Enter your first name" required>
@@ -192,7 +264,8 @@
 
                 <!-- Last Name -->
                 <div>
-                    <label for="last-name" data-lang-key="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <label for="last-name" data-lang-key="lastname" class="block text-sm font-medium text-gray-700">Last
+                        Name</label>
                     <input type="text" id="last-name" name="last-name" data-lang-key="placeholderLastname"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         placeholder="Enter your last name" required>
@@ -200,7 +273,8 @@
 
                 <!-- Email -->
                 <div>
-                    <label for="email" data-lang-key="mail" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <label for="email" data-lang-key="mail" class="block text-sm font-medium text-gray-700">Email
+                        Address</label>
                     <input type="email" id="email_id" name="email" data-lang-key="placeholderMail"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         placeholder="Enter your email address" required>
@@ -208,7 +282,8 @@
 
                 <!-- Message -->
                 <div>
-                    <label for="message" data-lang-key="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+                    <label for="message" data-lang-key="message" class="block text-sm font-medium text-gray-700">Your
+                        Message</label>
                     <textarea id="message_id" data-lang-key="placeholderMessage" name="message" rows="5"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 sm:text-sm"
                         placeholder="Write your message here" required></textarea>
@@ -216,8 +291,7 @@
 
                 <!-- Submit Button -->
                 <div class="text-center">
-                    <button id="send-message" type="submit"
-                        data-lang-key="sendMessageButtonTitle"
+                    <button id="send-message" type="submit" data-lang-key="sendMessageButtonTitle"
                         class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Send
                         Message
                     </button>
@@ -266,4 +340,5 @@
     <script src="main.js"></script>
     <script src="settings.js"></script>
 </body>
+
 </html>
