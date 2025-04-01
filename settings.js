@@ -34,6 +34,25 @@ const translations = {
         hoursTitle: "Hours",  
         hoursp1: "Mon-Fri: 6am - 9pm",
         hoursp2: "Sat: 8am - 6pm",
+        successStories: "Success Stories",
+        //Questionario
+        skip: "Skip",
+        onboardingTitle: "Let's Start Your Journey!",
+        goalQuestion: "What's your primary fitness goal?",
+        goalOption1: "Lose Weight",
+        goalOption2: "Build Muscle",
+        goalOption3: "Improve Endurance",
+        frequencyQuestion: "How often do you currently work out?",
+        frequencyOption1: "3 times a week",
+        frequencyOption2: "5 times a week",
+        frequencyOption3: "I don't work out yet",
+        environmentQuestion: "What's your preferred workout environment?",
+        environmentOption1: "Gym",
+        environmentOption2: "Home",
+        environmentOption3: "Outdoor",
+        detailsTitle: "Please provide your details:",
+        dataConsent: "I authorize the treatment of my personal data.",
+        finish: "Finish"
     },
     it: {
         home: "Home",
@@ -70,6 +89,25 @@ const translations = {
         hoursTitle: "Orari",
         hoursp1: "Lun-Ven: 6am - 9pm",
         hoursp2: "Sab: 8am - 6pm",
+        successStories: "Storie di Successo",
+        //Questionario
+        skip: "Salta",
+        onboardingTitle: "Inizia il Tuo Percorso!",
+        goalQuestion: "Qual è il tuo obiettivo fitness principale?",
+        goalOption1: "Perdere Peso",
+        goalOption2: "Costruire Muscoli",
+        goalOption3: "Migliorare la Resistenza",
+        frequencyQuestion: "Quanto spesso ti alleni attualmente?",
+        frequencyOption1: "3 volte a settimana",
+        frequencyOption2: "5 volte a settimana",
+        frequencyOption3: "Non mi alleno ancora",
+        environmentQuestion: "Qual è il tuo ambiente di allenamento preferito?",
+        environmentOption1: "Palestra",
+        environmentOption2: "Casa",
+        environmentOption3: "All'aperto",
+        detailsTitle: "Fornisci i tuoi dati:",
+        dataConsent: "Autorizzo il trattamento dei miei dati personali.",
+        finish: "Termina"
     }
 };
 

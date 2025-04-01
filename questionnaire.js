@@ -14,6 +14,11 @@ function nextQuestion(currentStep, nextStep) {
     updateProgressBar();
 }
 
+function closeOverlay() {
+    document.getElementById('onboarding-overlay').style.display = 'none';
+    resetQuestionnaire();
+}
+
 function startOnboarding() {
     let currentQuestion = 0;
     const questions = document.querySelectorAll('.question-container');
@@ -51,16 +56,16 @@ function startOnboarding() {
 function resetQuestionnaire() {
     // Resetta le domande
     const questions = document.querySelectorAll('.question-container');
-    
+
     // Nasconde tutte le domande
     questions.forEach((question) => {
         question.classList.add('hidden');
-        
+
         // Resetta eventuali bottoni selezionati
         question.querySelectorAll('button').forEach((button) => {
             button.classList.remove('selected'); // Rimuovi la classe 'selected', se usata
         });
-        
+
         // Resetta i campi di input, se presenti
         const inputs = question.querySelectorAll('input');
         inputs.forEach((input) => {
@@ -82,4 +87,35 @@ function resetQuestionnaire() {
 // Inizializzazione della barra di progresso
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('progress-bar').style.width = '0%';
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const heightInput = document.getElementById("height-1");
+    const weightInput = document.getElementById("weight-1");
+    const emailInput = document.getElementById("email");
+    const consentCheckbox = document.getElementById("data-consent");
+    const finishButton = document.getElementById("finish-btn");
+
+    function validateForm() {
+        const height = parseInt(heightInput.value, 10);
+        const weight = parseInt(weightInput.value, 10);
+        const email = emailInput.value.trim();
+        const consentChecked = consentCheckbox.checked;
+
+        const heightValid = height >= 140 && height <= 250;
+        const weightValid = weight >= 40 && weight <= 200;
+        const emailValid = email !== "" && /\S+@\S+\.\S+/.test(email);
+
+        if (heightValid && weightValid && emailValid && consentChecked) {
+            finishButton.removeAttribute("disabled");
+        } else {
+            finishButton.setAttribute("disabled", "true");
+        }
+    }
+
+    // Event listeners per validare i campi in tempo reale
+    heightInput.addEventListener("input", validateForm);
+    weightInput.addEventListener("input", validateForm);
+    emailInput.addEventListener("input", validateForm);
+    consentCheckbox.addEventListener("change", validateForm);
 });

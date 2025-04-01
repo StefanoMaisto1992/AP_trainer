@@ -94,61 +94,82 @@
     <script src="slideshow.js"></script>
 
     <!-- Overlay di onboarding -->
-    <div id="onboarding-overlay"
-        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div id="onboarding-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
         <div class="relative bg-white rounded-lg max-w-lg w-full p-8">
             <!-- Barra di progresso -->
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-700" id="progress-bar">
             </div>
-            <h2 class="text-2xl font-bold mb-4 text-center">Let’s Start Your Journey!</h2>
+            <button type="button" onclick="closeOverlay()" data-lang-key="skip"
+             class="absolute top-2 right-0 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+             Skip
+            </button>
+            <h2 data-lang-key="onboardingTitle" class="text-2xl font-bold mb-4 text-center">Let’s Start Your Journey!</h2>
             <!-- Domanda 1 -->
             <div class="question-container mb-6">
-                <p class="text-xl mb-4">What’s your primary fitness goal?</p>
+                <p data-lang-key="goalQuestion" class="text-xl mb-4">What’s your primary fitness goal?</p>
                 <button onclick="nextQuestion('goal')"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Lose Weight</button>
+                data-lang-key="goalOption1"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Lose
+                    Weight</button>
                 <button onclick="nextQuestion('goal')"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Build Muscle</button>
+                data-lang-key="goalOption2"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Build
+                    Muscle</button>
                 <button onclick="nextQuestion('goal')"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Improve Endurance</button>
+                data-lang-key="goalOption3"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Improve
+                    Endurance</button>
             </div>
             <!-- Domanda 2 -->
             <div class="question-container hidden mb-6">
-                <p class="text-xl mb-4">How often do you currently work out?</p>
+                <p data-lang-key="frequencyQuestion" class="text-xl mb-4">How often do you currently work out?</p>
                 <button onclick="nextQuestion('frequency')"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">3 times a week</button>
+                data-lang-key="frequencyOption1"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">3 times a
+                    week</button>
                 <button onclick="nextQuestion('frequency')"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">5 times a week</button>
+                data-lang-key="frequencyOption2"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">5 times a
+                    week</button>
                 <button onclick="nextQuestion('frequency')"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">I don’t work out yet</button>
+                data-lang-key="frequencyOption3"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">I don’t work out
+                    yet</button>
             </div>
             <!-- Domanda 3 -->
             <div class="question-container hidden mb-6">
-                <p class="text-xl mb-4">What’s your preferred workout environment?</p>
+                <p data-lang-key="onboardingTitle" class="text-xl mb-4">What’s your preferred workout environment?</p>
                 <button onclick="nextQuestion('environment')"
+                data-lang-key="environmentOption1"
                     class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Gym</button>
                 <button onclick="nextQuestion('environment')"
+                data-lang-key="environmentOption2"
                     class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Home</button>
                 <button onclick="nextQuestion('environment')"
+                data-lang-key="environmentOption3"
                     class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Outdoor</button>
             </div>
             <!-- Modulo per dati personali -->
             <div class="question-container hidden mb-6">
-                <p class="text-xl mb-4">Please provide your details:</p>
-                <input type="number" id="height" placeholder="Height (cm)"
+                <p  data-lang-key="detailsTitle" class="text-xl mb-4">Please provide your details:</p>
+                <input type="number" id="height-1" placeholder="Height (cm)"
+                data-lang-key="height"
                     class="mb-4 w-full px-4 py-2 border border-gray-300 rounded-md">
-                <input type="number" id="weight" placeholder="Weight (kg)"
+                <input type="number" id="weight-1" placeholder="Weight (kg)"
+                data-lang-key="weight"
                     class="mb-4 w-full px-4 py-2 border border-gray-300 rounded-md">
                 <input type="email" id="email" placeholder="Email"
                     class="mb-4 w-full px-4 py-2 border border-gray-300 rounded-md">
                 <label class="flex items-center mb-4">
-                    <input type="checkbox" id="data-consent" class="mr-2"> I authorize the treatment of my personal
+                    <input type="checkbox" id="data-consent" data-lang-key="dataConsent" class="mr-2"> I authorize the treatment of my personal
                     data.
                 </label>
-                <button onclick="finishOnboarding()"
-                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Finish</button>
-            </div>
-            <!-- Button per chiudere il modulo di onboarding -->
-            <button onclick="closeOnboarding()" class="absolute top-4 right-4 text-white text-xl">&times;</button>
+                <button id="finish-btn" onclick="finishOnboarding()" data-lang-key="finish"
+                    class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled>
+                    Finish
+                </button>
+                </div>
         </div>
     </div>
     <script src="questionnaire.js"></script>
@@ -198,7 +219,7 @@
 
     <section id="testimonials" class="bg-gray-100 py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">Success Stories</h2>
+            <h2 data-lang-key="successStories" class="text-4xl font-bold text-center mb-12">Success Stories</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61" alt="Client Success"
