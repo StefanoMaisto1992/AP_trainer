@@ -71,3 +71,33 @@
   width: 0;
   transition: width 0.5s;
 }
+
+.responsive-overlay > div {
+  max-width: lg; /* O il valore desiderato */
+  padding: 2rem;
+  overflow-y: auto; /* Aggiungi la scrollbar verticale quando necessario */
+  max-height: 90vh; /* Imposta un'altezza massima per il contenitore */
+}
+
+/* Media query per schermi molto piccoli (es. smartphone in verticale) */
+@media (max-width: 400px) {
+  .responsive-overlay > div {
+      max-width: 95%;
+      padding: 1rem;
+      max-height: 80vh; /* Riduci l'altezza massima per schermi ancora più piccoli */
+  }
+}
+
+/* Media query per schermi piccoli (es. tablet) */
+@media (max-width: 768px) {
+  .responsive-overlay > div {
+      max-width: 90%;
+      padding: 1.5rem;
+      max-height: 95vh; /* Aumenta leggermente l'altezza massima per i tablet */
+  }
+}
+
+#spacer {
+  height: 10px; /* Altezza dello spazio desiderato */
+  background-color: transparent; /* Rende lo sfondo trasparente, quindi è solo spazio */
+}
