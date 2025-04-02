@@ -1,16 +1,11 @@
 document.getElementById('get-started').addEventListener('click', function () {
-    document.getElementById('onboarding-overlay').classList.remove('hidden');
-    // Mostra l'overlay
-    document.getElementById('onboarding-overlay').style.display = 'flex'; // Modifica qui!
+    document.getElementById('onboarding-overlay').style.display = 'flex';
     startOnboarding();
 });
 
 function nextQuestion(currentStep, nextStep) {
     const currentElement = document.querySelector(`.${currentStep}`);
     const nextElement = document.querySelector(`.${nextStep}`);
-
-    currentElement.classList.add('hidden');
-    nextElement.classList.remove('hidden');
     updateProgressBar();
 }
 
@@ -42,9 +37,9 @@ function startOnboarding() {
                 questions[currentQuestion].classList.remove('hidden');
                 updateProgressBar();
             } else {
-                alert("Thank you for submitting your details!");
                 document.getElementById('onboarding-overlay').style.display = 'none';
                 resetQuestionnaire();
+                sendData();
             }
         });
     });
@@ -119,3 +114,33 @@ document.addEventListener("DOMContentLoaded", function () {
     emailInput.addEventListener("input", validateForm);
     consentCheckbox.addEventListener("change", validateForm);
 });
+
+function sendData() {
+    const userData = {
+        goal: document.querySelector(".question-container:not(.hidden) button.selected")?.textContent || "",
+        frequency: document.querySelector(".question-container:not(.hidden) button.selected")?.textContent || "",
+        environment: document.querySelector(".question-container:not(.hidden) button.selected")?.textContent || "",
+        height: document.getElementById("height-1").value,
+        weight: document.getElementById("weight-1").value,
+        email: document.getElementById("email").value
+    };
+
+    // URL Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxGoYMm_XRd0ShjMv0JgXH-oqjR1ltnriOZGTzibd3fRkh4v34IizxokgOQDoPBYIko4A/exec";
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Success:", data);
+        alert("Onboarding completed successfully!");
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("There was an error submitting your data.");
+    });
+}
+
