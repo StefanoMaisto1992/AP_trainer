@@ -133,9 +133,10 @@ function sendData() {
     };
     // Mostra i dati in un alert
     alert("Dati da inviare:\n" + JSON.stringify(userData, null, 2));
-    const scriptURL = "https://script.google.com/macros/s/AKfycbx-bCmFUgIR_rZS8TbVgvxceGU-aWlVi0v67fV4M90Z9nAzPVHz9PsbTqQvQtQMiIdZ/exec";
+    // URL della tua Netlify Function
+    const proxyURL = "/.netlify/functions/google-sheets-proxy";
 
-    fetch(scriptURL, {
+    fetch(proxyURL, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
