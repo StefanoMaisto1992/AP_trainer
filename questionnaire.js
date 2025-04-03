@@ -125,15 +125,18 @@ function sendData() {
         email: document.getElementById("email").value
     };
 
-    // URL Google Apps Script
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxGoYMm_XRd0ShjMv0JgXH-oqjR1ltnriOZGTzibd3fRkh4v34IizxokgOQDoPBYIko4A/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwdcVdjF31iarQeXU-GxKKIrm3nksy42Z_NsKaP9Wfz5WH6l-Xb_AbvzCqmb7Ys3-YoFw/exec";
 
     fetch(scriptURL, {
         method: "POST",
         body: JSON.stringify(userData),
-        headers: { "Content-Type": "application/json" }
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        mode: 'cors'
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
         console.log("Success:", data);
         alert("Onboarding completed successfully!");
