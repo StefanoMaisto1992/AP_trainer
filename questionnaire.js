@@ -131,8 +131,7 @@ function sendData() {
         weight: document.getElementById("weight-1").value,
         email: document.getElementById("email").value
     };
-    // Mostra i dati in un alert
-    alert("Dati da inviare:\n" + JSON.stringify(userData, null, 2));
+    console.log("Dati da inviare:\n" + JSON.stringify(userData, null, 2));
     // URL della tua Netlify Function
     const proxyURL = "/.netlify/functions/google-sheets-proxy";
 
