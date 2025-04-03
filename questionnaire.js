@@ -1,3 +1,11 @@
+let userGoal = "";
+let userFrequency = "";
+let userEnvironment = "";
+let currentQuestionIndex = 0;
+
+const questions = document.querySelectorAll('.question-container');
+const progressBar = document.getElementById('progress-bar');
+
 document.getElementById('get-started').addEventListener('click', function () {
     document.getElementById('onboarding-overlay').style.display = 'flex';
     startOnboarding();
@@ -15,40 +23,39 @@ function closeOverlay() {
 }
 
 function startOnboarding() {
-    let currentQuestion = 0;
-    const questions = document.querySelectorAll('.question-container');
-    const progressBar = document.getElementById('progress-bar');
-
     // Mostra la prima domanda
-    questions[currentQuestion].classList.remove('hidden');
-
-    // Funzione per aggiornare la barra di progresso
-    function updateProgressBar() {
-        const progress = ((currentQuestion + 1) / questions.length) * 100;
-        progressBar.style.width = `${progress}%`;
-    }
-
-    // Aggiungi evento per il pulsante "Submit"
     document.querySelectorAll('.question-container button').forEach((button) => {
         button.addEventListener('click', function () {
-            if (currentQuestion < questions.length - 1) {
-                questions[currentQuestion].classList.add('hidden');
-                currentQuestion++;
-                questions[currentQuestion].classList.remove('hidden');
+            const questionType = questions[currentQuestionIndex].querySelector('p').dataset.langKey.replace('Question', '').toLowerCase(); // Ottieni il tipo di domanda
+            const selectedValue = button.textContent;
+
+            // Aggiorna la variabile globale in base al tipo di domanda
+            if (questionType === 'goal') {
+                userGoal = selectedValue;
+            } else if (questionType === 'frequency') {
+                userFrequency = selectedValue;
+            } else if (questionType === 'environment') {
+                userEnvironment = selectedValue;
+            }
+
+            if (currentQuestionIndex < questions.length - 1) {
+                questions[currentQuestionIndex].classList.add('hidden');
+                currentQuestionIndex++;
+                questions[currentQuestionIndex].classList.remove('hidden');
                 updateProgressBar();
             } else {
                 document.getElementById('onboarding-overlay').style.display = 'none';
-                resetQuestionnaire();
                 sendData();
             }
         });
     });
-
-    // Inizializzazione della barra di progresso
     updateProgressBar();
 }
 
 function resetQuestionnaire() {
+    userGoal = "";
+    userFrequency = "";
+    userEnvironment = "";
     // Resetta le domande
     const questions = document.querySelectorAll('.question-container');
 
@@ -75,8 +82,8 @@ function resetQuestionnaire() {
     document.getElementById('progress-bar').style.width = '0%';
 
     // Ripristina la prima domanda
-    currentQuestion = 0;
-    questions[currentQuestion].classList.remove('hidden');
+    currentQuestionIndex = 0;
+    questions[currentQuestionIndex].classList.remove('hidden');
     location.reload();
 }
 // Inizializzazione della barra di progresso
@@ -117,32 +124,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function sendData() {
     const userData = {
-        goal: document.querySelector(".question-container:not(.hidden) button.selected")?.textContent || "",
-        frequency: document.querySelector(".question-container:not(.hidden) button.selected")?.textContent || "",
-        environment: document.querySelector(".question-container:not(.hidden) button.selected")?.textContent || "",
+        goal: userGoal,
+        frequency: userFrequency,
+        environment: userEnvironment,
         height: document.getElementById("height-1").value,
         weight: document.getElementById("weight-1").value,
         email: document.getElementById("email").value
     };
-
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwdcVdjF31iarQeXU-GxKKIrm3nksy42Z_NsKaP9Wfz5WH6l-Xb_AbvzCqmb7Ys3-YoFw/exec";
+    // Mostra i dati in un alert
+    alert("Dati da inviare:\n" + JSON.stringify(userData, null, 2));
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx-bCmFUgIR_rZS8TbVgvxceGU-aWlVi0v67fV4M90Z9nAzPVHz9PsbTqQvQtQMiIdZ/exec";
 
     fetch(scriptURL, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
             "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        mode: 'cors'
+        }
     })
     .then(response => response.json())
     .then(data => {
         console.log("Success:", data);
+        resetQuestionnaire();
         alert("Onboarding completed successfully!");
     })
     .catch(error => {
         console.error("Error:", error);
+        resetQuestionnaire();
         alert("There was an error submitting your data.");
     });
 }

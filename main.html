@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" href="images/Favicons/browser.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.4/css/flag-icon.min.css">
 </head>
 
 <body class="bg-gray-50">
@@ -135,7 +134,7 @@
             </div>
             <!-- Domanda 3 -->
             <div class="question-container hidden mb-6">
-                <p data-lang-key="onboardingTitle" class="text-xl mb-4">What’s your preferred workout environment?</p>
+                <p data-lang-key="environmentQuestion" class="text-xl mb-4">What’s your preferred workout environment?</p>
                 <button onclick="nextQuestion('environment')" data-lang-key="environmentOption1"
                     class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Gym</button>
                 <button onclick="nextQuestion('environment')" data-lang-key="environmentOption2"
@@ -156,7 +155,7 @@
                     <input type="checkbox" id="data-consent" class="mr-2">
                     <span data-lang-key="dataConsent">I authorize the treatment of my personal data.</span>
                 </label>
-                <button id="finish-btn" onclick="finishOnboarding()" data-lang-key="finish"
+                <button id="finish-btn" data-lang-key="finish"
                     class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled>
                     Finish
