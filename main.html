@@ -93,10 +93,12 @@
     <script src="slideshow.js"></script>
 
     <!-- Overlay di onboarding -->
-    <div id="onboarding-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 responsive-overlay">
+    <div id="onboarding-overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 responsive-overlay">
         <div class="relative bg-white rounded-lg max-w-lg w-full p-8">
             <!-- Barra di progresso -->
-            <div class="absolute top-0 left-0 h-1 bg-gradient-to-r from-red-600 to-red-700 transition-all duration-500" id="progress-bar"></div>
+            <div class="absolute top-0 left-0 h-1 bg-gradient-to-r from-red-600 to-red-700 transition-all duration-500"
+                id="progress-bar"></div>
             <div id="spacer"></div>
             <button type="button" onclick="closeOverlay()" data-lang-key="skip"
                 class="absolute top-2 right-0 text-xs px-3 py-1.5 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
@@ -133,7 +135,8 @@
             </div>
             <!-- Domanda 3 -->
             <div class="question-container hidden mb-6">
-                <p data-lang-key="environmentQuestion" class="text-xl mb-4">What’s your preferred workout environment?</p>
+                <p data-lang-key="environmentQuestion" class="text-xl mb-4">What’s your preferred workout environment?
+                </p>
                 <button onclick="nextQuestion('environment')" data-lang-key="environmentOption1"
                     class="bg-red-600 px-8 py-3 rounded-full hover:bg-red-700 transition text-white">Gym</button>
                 <button onclick="nextQuestion('environment')" data-lang-key="environmentOption2"
@@ -209,27 +212,58 @@
         <div class="container mx-auto px-4">
             <h2 data-lang-key="successStories" class="text-4xl font-bold text-center mb-12">Success Stories</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61" alt="Client Success"
+                <!-- Testimonial 1 -->
+                <div id="testimonial-1"
+                    class="bg-white p-6 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1597452485668-2b8ae3b8daa7" alt="Client Success"
                         class="w-full h-48 object-cover rounded mb-4">
-                    <p class="text-gray-600 mb-4">"Lost 30 pounds and gained confidence. Best decision ever!"</p>
-                    <p class="font-bold">- John Doe</p>
+                    <p class="text-gray-600 mb-4">"Mi allenavo già da tempo ma non riuscivo ad ottenre la definzione che desideravo. Farmi seguire da questo pt è stata una delle migliori decisoni !"</p>
+                    <p class="font-bold">- Bruno Gianluca</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155" alt="Client Success"
+
+                <!-- Testimonial 2 -->
+                <div id="testimonial-2"
+                    class="bg-white p-6 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1648634558270-6533b7578915" alt="Client Success"
                         class="w-full h-48 object-cover rounded mb-4">
-                    <p class="text-gray-600 mb-4">"Improved my boxing technique dramatically in just 3 months."</p>
-                    <p class="font-bold">- Jane Smith</p>
+                    <p class="text-gray-600 mb-4">"Con lui ho ritrovato la passione per il fitness che stava un po morendo dentro di me. Sono riuscita ad ottenere ottimi risulati in poche settimane."</p>
+                    <p class="font-bold">- Giusy Maisto</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b" alt="Client Success"
+
+                <!-- Testimonial 3 -->
+                <div id="testimonial-3"
+                    class="bg-white p-6 rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1627262899263-839fe9307c00" alt="Client Success"
                         class="w-full h-48 object-cover rounded mb-4">
-                    <p class="text-gray-600 mb-4">"Found my passion for fitness thanks to the amazing training."</p>
-                    <p class="font-bold">- Mike Johnson</p>
+                    <p class="text-gray-600 mb-4">"Ho migliorato le mie boxing skill in soli 3 mesi, riuscendo a mettere su anche massa magra."</p>
+                    <p class="font-bold">- Alexander Tuta</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal for Before and After -->
+    <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="relative bg-white p-8 rounded-lg max-w-lg w-full">
+            <h2 class="text-2xl font-bold text-center mb-4">Before & After</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <h3 class="text-xl text-center mb-2">Before</h3>
+                    <img id="before-image" src="" alt="Before" class="w-full h-auto rounded shadow">
+                </div>
+                <div>
+                    <h3 class="text-xl text-center mb-2">After</h3>
+                    <img id="after-image" src="" alt="After" class="w-full h-auto rounded shadow">
+                </div>
+            </div>
+            <!-- Pulsante di chiusura simile al pulsante "Skip" -->
+            <button id="closeModal"
+                class="absolute top-2 right-2 text-xs px-3 py-1.5 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-center">
+                Close
+            </button>
+        </div>
+    </div>
+
 
     <section id="bmi" class="py-20">
         <div class="container mx-auto px-4">
@@ -350,5 +384,7 @@
     <script src="JScript/main.js"></script>
     <script src="JScript/settings.js"></script>
     <script src="JScript/slideshow.js"></script>
+    <script src="JScript/modal.js"></script>
 </body>
+
 </html>
