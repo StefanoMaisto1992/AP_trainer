@@ -245,21 +245,20 @@
     <!-- Modal for Before and After -->
     <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
         <div class="relative bg-white p-8 rounded-lg max-w-lg w-full">
-            <h2 class="text-2xl font-bold text-center mb-4">Before & After</h2>
+            <h2 class="text-2xl font-bold text-center mb-4" data-lang-key="beforeAfterTitle">Before & After</h2>
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <h3 class="text-xl text-center mb-2">Before</h3>
+                    <h3 class="text-xl text-center mb-2 data" data-lang-key="before">Prima</h3>
                     <img id="before-image" src="" alt="Before" class="w-full h-auto rounded shadow">
                 </div>
                 <div>
-                    <h3 class="text-xl text-center mb-2">After</h3>
+                    <h3 class="text-xl text-center mb-2" data-lang-key="after">Dopo</h3>
                     <img id="after-image" src="" alt="After" class="w-full h-auto rounded shadow">
                 </div>
             </div>
-            <!-- Pulsante di chiusura simile al pulsante "Skip" -->
-            <button id="closeModal"
+            <button id="closeModal" data-lang-key="closeButton"
                 class="absolute top-2 right-2 text-xs px-3 py-1.5 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-center">
-                Close
+                Chiudi
             </button>
         </div>
     </div>

@@ -52,7 +52,11 @@ const translations = {
         environmentOption3: "Outdoor",
         detailsTitle: "Please provide your details:",
         dataConsent: "I authorize the treatment of my personal data.",
-        finish: "Finish"
+        finish: "Finish",
+        //Modal page
+        beforeAfterTitle: "Before & After",
+        before: "Before", 
+        after: "After"
     },
     it: {
         home: "Home",
@@ -107,7 +111,11 @@ const translations = {
         environmentOption3: "All'aperto",
         detailsTitle: "Fornisci i tuoi dati:",
         dataConsent: "Autorizzo il trattamento dei miei dati personali.",
-        finish: "Termina"
+        finish: "Termina",
+        //Modal page
+        beforeAfterTitle: "Prima e dopo",
+        before: "Prima", 
+        after: "Dopo"
     }
 };
 
